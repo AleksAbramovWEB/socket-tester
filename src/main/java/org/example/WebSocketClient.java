@@ -7,18 +7,21 @@ import java.util.concurrent.TimeUnit;
 public class WebSocketClient {
 
     private static final int MAX_CONNECTIONS = 1000;
-    private static final String URL = "";
 
     public static int total = 0;
 
     public static void main(String[] args) throws InterruptedException {
+
+        String url = args[0];
+
+        System.out.println(url);
 
         for (int i = 1; i < MAX_CONNECTIONS; i++) {
             OkHttpClient client = new OkHttpClient.Builder()
                     .build();
 
             Request request = new Request.Builder()
-                    .url(URL)
+                    .url(url)
                     .build();
 
             client.newWebSocket(request, new WebSocketListener() {
