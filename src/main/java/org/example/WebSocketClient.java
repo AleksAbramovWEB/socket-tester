@@ -5,9 +5,6 @@ import okhttp3.*;
 import java.util.concurrent.TimeUnit;
 
 public class WebSocketClient {
-
-    private static final int MAX_CONNECTIONS = 1000;
-
     public static int total = 0;
 
     public static void main(String[] args) throws InterruptedException {
