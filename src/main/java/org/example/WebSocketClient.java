@@ -14,9 +14,12 @@ public class WebSocketClient {
 
         String url = args[0];
 
+        int sleep = Integer.parseInt(args[1]);
+        int maxConnections = Integer.parseInt(args[2]);
+
         System.out.println(url);
 
-        for (int i = 1; i < MAX_CONNECTIONS; i++) {
+        for (int i = 1; i < maxConnections; i++) {
             OkHttpClient client = new OkHttpClient.Builder()
                     .build();
 
@@ -53,7 +56,7 @@ public class WebSocketClient {
                     System.out.println("WebSocket onClosing " + finalI + ": " + reason);
                 }
             });
-            TimeUnit.SECONDS.sleep(1);
+            TimeUnit.MILLISECONDS.sleep(sleep);
         }
     }
 }
